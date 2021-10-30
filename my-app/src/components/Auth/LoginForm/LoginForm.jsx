@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { Button, Form, FormGroup, Input, Label, Row } from "reactstrap";
+import { Button, Form, FormGroup, Input, Label } from "reactstrap";
 import "./LoginForm.css";
 export default class LoginForm extends Component {
   render () {
