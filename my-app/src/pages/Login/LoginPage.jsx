@@ -5,6 +5,7 @@ export default class LoginPage extends Component {
   render () {
     return (
       <div className='login'>
+        <h1>Bievenido al Software Prasi</h1>
         <LoginForm/>
       </div>
     )
