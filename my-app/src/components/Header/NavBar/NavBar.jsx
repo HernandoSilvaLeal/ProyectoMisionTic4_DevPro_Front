@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import { 
   Collapse,
   DropdownItem,
@@ -14,12 +15,12 @@ export default class NavBar extends Component {
     return (
       <div>
   <Navbar
-    color="warning"
-    expand="md"
+    color="light"
+    expand="sm"
     light
   >
-    <NavbarBrand href="/">
-      reactstrap
+    <NavbarBrand href="/home">
+      Software PRASI
     </NavbarBrand>
     <NavbarToggler onClick={function noRefCheck(){}} />
     <Collapse navbar>
@@ -28,41 +29,26 @@ export default class NavBar extends Component {
         navbar
       >
         <NavItem>
-          <NavLink href="/components/">
-            Components
+          <NavLink href="/profile">
+            Perfil
           </NavLink>
         </NavItem>
         <NavItem>
-          <NavLink href="https://github.com/reactstrap/reactstrap">
-            GitHub
+          <NavLink href="users">
+            Usuarios
           </NavLink>
         </NavItem>
-        <UncontrolledDropdown
-          inNavbar
-          nav
-        >
-          <DropdownToggle
-            caret
-            nav
-          >
-            Options
-          </DropdownToggle>
-          <DropdownMenu right>
-            <DropdownItem>
-              Option 1
-            </DropdownItem>
-            <DropdownItem>
-              Option 2
-            </DropdownItem>
-            <DropdownItem divider />
-            <DropdownItem>
-              Reset
-            </DropdownItem>
-          </DropdownMenu>
-        </UncontrolledDropdown>
+        <NavItem>
+          <NavLink href="/projects">
+            Proyectos
+          </NavLink>
+        </NavItem>
       </Nav>
       <NavbarText>
-        Simple Text
+        Nombre del Usuario
+        <Link to="/">
+          Cerrar Sesión
+        </Link>
       </NavbarText>
     </Collapse>
   </Navbar>

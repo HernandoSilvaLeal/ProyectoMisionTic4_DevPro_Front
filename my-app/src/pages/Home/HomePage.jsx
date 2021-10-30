@@ -4,7 +4,9 @@ import Header from '../../components/Header/Header';
 export default class HomePage extends Component {
   render () {
     return (
-      <Header/>
+      <div>
+        <Header/>
+      </div>
     )
   }
 }
