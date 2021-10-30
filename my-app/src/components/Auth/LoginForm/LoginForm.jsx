@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import { Button, Form, FormGroup, Input, Label } from "reactstrap";
 import "./LoginForm.css";
 export default class LoginForm extends Component {
+
+
+ const onClick 
   render () {
     return (
       <div className="loginForm">
