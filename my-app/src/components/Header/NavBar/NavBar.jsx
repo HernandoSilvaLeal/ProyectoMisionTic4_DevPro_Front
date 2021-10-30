@@ -2,11 +2,8 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { 
   Collapse,
-  DropdownItem,
-  DropdownMenu,
-  DropdownToggle,
   Nav,
-  Navbar, NavbarBrand, NavbarText, NavbarToggler, NavItem, NavLink, UncontrolledDropdown,
+  Navbar, NavbarBrand, NavbarText, NavbarToggler, NavItem, NavLink,
  } from 'reactstrap';
 
 export default class NavBar extends Component {
@@ -15,9 +12,10 @@ export default class NavBar extends Component {
     return (
       <div>
   <Navbar
-    color="light"
+    color="success"
     expand="sm"
-    light
+    dark
+    hover
   >
     <NavbarBrand href="/home">
       Software PRASI
@@ -41,6 +39,11 @@ export default class NavBar extends Component {
         <NavItem>
           <NavLink href="/projects">
             Proyectos
+          </NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink href="/requests">
+            Solicitudes
           </NavLink>
         </NavItem>
       </Nav>
