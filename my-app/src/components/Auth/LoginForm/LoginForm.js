@@ -1,38 +1,34 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
 import { useMutation } from "@apollo/client";
+
+import { LOGIN_MUTATION } from "../../../services/GraphQL/mutations/auth";
+
 import { Button, Form, FormGroup, Input, Label } from "reactstrap";
 
-import { LOGIN_MUTATION } from "../../../services/GraphQL/mutations/login";
 import "./LoginForm.css";
+import { login } from "../../../actions/authAction";
 
-const LoginForm = () => {
+const LoginForm = (props) => {
   const [form, setForm] = useState({
     email: "hernandosilvaleal@gmail.com",
     password: "KWj5JGtdoGgLsS2p",
   });
-  const [login, { error }] = useMutation(LOGIN_MUTATION);
+
+  const [login] = useMutation(LOGIN_MUTATION, {
+    variables: { ...form },
+  });
 
   const handleChange = ({ target }) =>
     setForm({ ...form, [target.name]: target.value });
 
   const onClick = (e) => {
     e.preventDefault();
-    logUser();
+    props.login(form, { props, login });
   };
 
-  const logUser = () => {
-    const user = login({
-      variables: {
-        email: form.email,
-        password: form.password,
-      },
-    });
-
-    console.log(user);
-  };
-
-  if (error) {
-    console.log(error);
+  if (props.loading) {
+    return <div>Loading....</div>;
   }
 
   return (
@@ -68,4 +64,12 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+const mapStateToProps = (reducers) => {
+  return reducers.userReducer;
+};
+
+const mapDispatchToProps = {
+  login,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);
