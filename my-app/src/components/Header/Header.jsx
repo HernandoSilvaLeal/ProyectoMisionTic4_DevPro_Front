@@ -1,11 +1,14 @@
-import React, { Component } from "react";
-import NavBar from './NavBar/NavBar';
+import { connect } from "react-redux";
+import NavBar from "./NavBar/NavBar";
 
-export default class Header extends Component {
-  render () {
+const Header = (props) => {
+  return <NavBar {...props} />;
+};
 
-    return (
-      <NavBar/>
-    )
-  }
-}
+const mapStateToProps = (reducers) => {
+  return reducers.userReducer;
+};
+
+const mapDispatchToProps = {};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

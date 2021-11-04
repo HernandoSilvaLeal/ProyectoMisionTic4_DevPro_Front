@@ -1,0 +1,18 @@
+.navlink {
+  text-decoration: none;
+  color: #fff;
+  padding: 2px 4px;
+  border: none;
+  border-radius: 5px;
+  transition: all;
+}
+
+.navlink:hover {
+  background-color: #73ad21;
+  color: #fff;
+}
+
+.selected {
+  text-decoration: none;
+  color: #0ff;
+}

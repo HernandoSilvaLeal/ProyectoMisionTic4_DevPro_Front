@@ -14,18 +14,24 @@ import ProfilePage from "../../pages/Profile/ProfilePage";
 import ProjectsPage from "../../pages/Projects/ProjectsPage";
 import RequestsPages from "../../pages/Requests/RequestsPage";
 import UsersPage from "../../pages/Users/UsersPage";
+import Error404 from "../../pages/Error404";
 
 import { checkSession } from "../../actions/authAction";
 import { CHECK_SESSION } from "../../services/GraphQL/mutations/auth";
 
 const Browser = (props) => {
-  const { data } = useQuery(CHECK_SESSION);
+  const { loading, data } = useQuery(CHECK_SESSION);
+
   useEffect(() => {
     const { login, checkSession } = props;
     if (!login && data) {
       checkSession(data);
     }
   }, []);
+
+  if (loading) {
+    return <div>loading...</div>;
+  }
 
   return (
     <BrowserRouter>
@@ -38,6 +44,7 @@ const Browser = (props) => {
 
         <Authentication path="/login" {...props} component={LoginPage} />
         <Authentication path="/register" {...props} component={RegisterPage} />
+        <Main path="*" exact {...props} component={Error404} />
       </Switch>
     </BrowserRouter>
   );
