@@ -8,6 +8,7 @@ import { LOGIN_MUTATION } from "../../../services/GraphQL/mutations/auth";
 import Input from "../../Input";
 import "./LoginForm.css";
 import { login } from "../../../actions/authAction";
+import { Link } from "react-router-dom";
 
 const LoginForm = (props) => {
   const [form, setForm] = useState({
@@ -53,6 +54,7 @@ const LoginForm = (props) => {
         <Button color="primary" onClick={onClick}>
           Iniciar Sesión
         </Button>
+        <Link to="/register">No estás registrado?</Link>
       </Form>
     </div>
   );

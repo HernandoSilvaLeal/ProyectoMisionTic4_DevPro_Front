@@ -1,24 +1,16 @@
 import React, { useState } from "react";
-import { Button, Form } from "reactstrap"
+import { Button, Form } from "reactstrap";
 import Input from "../../Input";
+import Select from "../../Select";
 import "./RegisterForm.css";
 
-const RegisterForm = (props) => {
-
+const RegisterForm = () => {
   const [form, setForm] = useState({
     email: "",
     password: "",
   });
 
-
-  const onClickR = (e) => {
-  };
-
-  const onClickI = (e) => {
-  };
-
-
-  return(
+  return (
     <div className="RegisterForm">
       <Form>
         <Input
@@ -33,37 +25,26 @@ const RegisterForm = (props) => {
           type="string"
           label="Identificación"
         />
-        <Input
-          name="email"
-          placeholder="Correo"
-          type="email"
-          label="Correo"
-        />
+        <Input name="email" placeholder="Correo" type="email" label="Correo" />
         <Input
           name="password"
           placeholder="contraseña"
           label="Contraseña"
           type="password"
         />
-        <Input
-          name="Tipo"
-          placeholder="Rol"
-          label="Tipo de Rol"
-          type="select"
-        />
-        <div>
-        <Button color="primary" onClick={onClickR}>
-          Registarse
-        </Button>
-        <br/>
-        <br/>
-        <Button color="primary" onClick={onClickI}>
-          Iniciar Sesión
-        </Button>
-        </div>
+        <Select name="role" label="Tipo de Rol">
+          <option>Seleccione un rol</option>
+          <option value="ADMIN">Administrador</option>
+          <option value="LEADER">Líder de proyecto</option>
+          <option value="STUDENT">Estudiante</option>
+        </Select>
+        <Button color="primary">Registarse</Button>
+        <br />
+        <br />
+        <Button color="primary">Iniciar Sesión</Button>
       </Form>
     </div>
-  )
-}
+  );
+};
 
-export default (RegisterForm)
+export default RegisterForm;
