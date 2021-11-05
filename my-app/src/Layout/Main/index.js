@@ -2,7 +2,6 @@ import { Route, Redirect } from "react-router-dom";
 import Header from "../../components/Header/Header";
 
 const Main = ({ component: Component, loading, login, ...rest }) => {
-  console.log();
   return (
     <div>
       <Header {...rest} />

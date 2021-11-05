@@ -1,0 +1,6 @@
+input {
+  border: none;
+  border-radius: 10px;
+  transition: all;
+  flex: block;
+}

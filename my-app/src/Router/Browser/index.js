@@ -15,6 +15,7 @@ import ProjectsPage from "../../pages/Projects/ProjectsPage";
 import RequestsPages from "../../pages/Requests/RequestsPage";
 import UsersPage from "../../pages/Users/UsersPage";
 import Error404 from "../../pages/Error404";
+import Project from "../../pages/Project";
 
 import { checkSession } from "../../actions/authAction";
 import { CHECK_SESSION } from "../../services/GraphQL/mutations/auth";
@@ -38,6 +39,7 @@ const Browser = (props) => {
       <Switch>
         <Main exact path="/" {...props} component={HomePage} />
         <Main path="/profile" {...props} component={ProfilePage} />
+        <Main path="/projects/:id" {...props} component={Project} />
         <Main path="/projects" {...props} component={ProjectsPage} />
         <Main path="/requests" {...props} component={RequestsPages} />
         <Main path="/users" {...props} component={UsersPage} />

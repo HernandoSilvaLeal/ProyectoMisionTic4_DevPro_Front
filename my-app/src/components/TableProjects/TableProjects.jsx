@@ -6,10 +6,10 @@ import { Link } from "react-router-dom";
 
 import { PROJECTS_QUERY } from "../../services/GraphQL/queries/projects";
 
-const TableProjects = (props) => {
+const TableProjects = () => {
   const { loading, data } = useQuery(PROJECTS_QUERY);
 
-  if (loading) {
+ if (loading) {
     return <div>loading</div>;
   }
   return (
@@ -42,7 +42,7 @@ const TableProjects = (props) => {
                 <td>{project.status}</td>
                 <td>{project.fase}</td>
                 <td>
-                  <Link to={`/project/${project._id}`}>
+                  <Link to={`/projects/${project._id}`}>
                     <FaEdit />
                   </Link>
                 </td>

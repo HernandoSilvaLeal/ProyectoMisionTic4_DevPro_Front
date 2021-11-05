@@ -7,7 +7,8 @@ const NavList = () => {
     <Nav className="me-auto" navbar>
       <NavItem to="/profile">Perfil</NavItem>
       <NavItem to="/users">Usuarios</NavItem>
-      <NavItem to="/Projects">Proyectos</NavItem>
+      <NavItem to="/projects">Proyectos</NavItem>
+      <NavItem to="/requests">Requests</NavItem>
     </Nav>
   );
 };

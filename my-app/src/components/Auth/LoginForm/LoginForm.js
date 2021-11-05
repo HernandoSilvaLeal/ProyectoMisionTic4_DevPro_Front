@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { useMutation } from "@apollo/client";
+import { Button, Form } from "reactstrap";
 
 import { LOGIN_MUTATION } from "../../../services/GraphQL/mutations/auth";
 
-import { Button, Form, FormGroup, Input, Label } from "reactstrap";
-
+import Input from "../../Input";
 import "./LoginForm.css";
 import { login } from "../../../actions/authAction";
 
@@ -34,28 +34,22 @@ const LoginForm = (props) => {
   return (
     <div className="loginForm">
       <Form>
-        <FormGroup>
-          <Label for="exampleEmail">Email</Label>
-          <Input
-            id="exampleEmail"
-            name="email"
-            placeholder="email"
-            type="email"
-            value={form.email}
-            onChange={handleChange}
-          />
-        </FormGroup>
-        <FormGroup>
-          <Label for="examplePassword">Password</Label>
-          <Input
-            id="examplePassword"
-            name="password"
-            placeholder="contraseña"
-            type="password"
-            value={form.password}
-            onChange={handleChange}
-          />
-        </FormGroup>
+        <Input
+          name="email"
+          placeholder="email"
+          type="email"
+          label="Email"
+          value={form.email}
+          onChange={handleChange}
+        />
+        <Input
+          name="password"
+          placeholder="contraseña"
+          label="Contraseña"
+          type="password"
+          value={form.password}
+          onChange={handleChange}
+        />
         <Button color="primary" onClick={onClick}>
           Iniciar Sesión
         </Button>
