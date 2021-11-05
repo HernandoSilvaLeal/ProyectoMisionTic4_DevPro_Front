@@ -1,4 +1,5 @@
 import { Route } from "react-router-dom";
+import "./index.css"
 
 const Authentication = ({ component: Component, ...rest }) => {
   return (

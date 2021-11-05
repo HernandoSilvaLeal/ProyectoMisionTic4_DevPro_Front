@@ -1,4 +1,10 @@
 .login {
   display: inline-block;
   text-align: center;
+  min-height: 100vh;
+  background-color: #388e3c;
+}
+
+.bienv {
+  color: white;
 }
