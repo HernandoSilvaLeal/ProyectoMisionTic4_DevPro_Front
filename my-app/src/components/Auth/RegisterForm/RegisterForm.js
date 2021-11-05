@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { Button, Form } from "reactstrap";
 import Input from "../../Input";
 import Select from "../../Select";
@@ -41,7 +42,11 @@ const RegisterForm = () => {
         <Button color="primary">Registarse</Button>
         <br />
         <br />
-        <Button color="primary">Iniciar Sesión</Button>
+        <Link to="/login">
+          <Button color="primary">
+            Iniciar Sesión
+          </Button>
+        </Link>
       </Form>
     </div>
   );

@@ -5,7 +5,7 @@ import "./LoginPage.css";
 const Login = (props) => {
   return (
     <div className="login">
-      <h1>Bienvenido al software PRASI</h1>
+      <h1 className="bienv">Bienvenido al software PRASI</h1>
       <LoginForm {...props} />
     </div>
   );

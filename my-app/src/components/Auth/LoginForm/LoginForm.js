@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { useMutation } from "@apollo/client";
-import { Button, Form } from "reactstrap";
+import { Button, Form, Spinner } from "reactstrap";
 
 import { LOGIN_MUTATION } from "../../../services/GraphQL/mutations/auth";
 
@@ -29,7 +29,7 @@ const LoginForm = (props) => {
   };
 
   if (props.loading) {
-    return <div>Loading....</div>;
+    return <Spinner> Loading... </Spinner>;
   }
 
   return (
@@ -54,7 +54,9 @@ const LoginForm = (props) => {
         <Button color="primary" onClick={onClick}>
           Iniciar Sesión
         </Button>
-        <Link to="/register">No estás registrado?</Link>
+        <br/>
+        <br/>
+        <Link to="/register">¿No estás registrado?</Link>
       </Form>
     </div>
   );
