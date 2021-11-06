@@ -31,7 +31,7 @@ const LoginForm = (props) => {
   };
 
   if (props.loading) {
-    return <div>Loading....</div>;
+    return <Spinner> Loading... </Spinner>;
   }
 
   return (

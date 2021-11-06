@@ -1,11 +1,14 @@
 import { connect } from "react-redux";
 import {
+  Button,
   Collapse,
   Navbar,
   NavbarBrand,
   NavbarText,
   NavbarToggler,
 } from "reactstrap";
+
+import "./NavBar.css"
 
 import NavList from "./components/NavList";
 
@@ -24,8 +27,12 @@ const NavBar = (props) => {
         <Collapse navbar>
           <NavList />
           <NavbarText>
+            <div className="userN">
             {props.user.name}
-            <button onClick={doLogout}>Cerrar Sesión</button>
+            </div>
+            <Button
+            color="dark"
+            onClick={doLogout}>Cerrar Sesión</Button>
           </NavbarText>
         </Collapse>
       </Navbar>
