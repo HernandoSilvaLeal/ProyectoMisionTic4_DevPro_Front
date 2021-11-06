@@ -12,7 +12,7 @@ import RegisterPage from "../../pages/Register/RegisterPage";
 import HomePage from "../../pages/Home/HomePage";
 import ProfilePage from "../../pages/Profile/ProfilePage";
 import ProjectsPage from "../../pages/Projects/ProjectsPage";
-import RequestsPages from "../../pages/Requests/RequestsPage";
+import RequestsPage from "../../pages/Requests/RequestsPage";
 import UsersPage from "../../pages/Users/UsersPage";
 import Error404 from "../../pages/Error404";
 import Project from "../../pages/Project";
@@ -41,7 +41,7 @@ const Browser = (props) => {
         <Main path="/profile" {...props} component={ProfilePage} />
         <Main path="/projects/:id" {...props} component={Project} />
         <Main path="/projects" {...props} component={ProjectsPage} />
-        <Main path="/requests" {...props} component={RequestsPages} />
+        <Main path="/requests" {...props} component={RequestsPage} />
         <Main path="/users" {...props} component={UsersPage} />
 
         <Authentication path="/login" {...props} component={LoginPage} />

@@ -1,11 +1,12 @@
+import { useField } from "formik";
 import { Input as Inputbox, Label, FormGroup } from "reactstrap";
 
 const Input = ({ label, ...props }) => {
-  console.log({ ...props });
+  const [field] = useField(props);
   return (
     <FormGroup>
       <Label for={props.name}>{label}</Label>
-      <Inputbox {...props} />
+      <Inputbox {...field} {...props} />
     </FormGroup>
   );
 };

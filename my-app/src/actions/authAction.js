@@ -1,3 +1,4 @@
+import {} from "react-router-dom";
 import userApi from "../helpers/userApi";
 
 import {
@@ -9,14 +10,16 @@ import {
   ERROR_SIGNUP,
 } from "../reducers/types";
 
-export const signUp = (form, props) => async (dispatch) => {
+export const signUp = (form, { props, signUp }) => async (dispatch) => {
   try {
     dispatch({ type: USER_LOADING });
-    const response = await userApi.signUp(form);
-    localStorage.setItem("token", response.headers.authorization);
-    dispatch({ type: LOGIN, payload: response.data });
+    const response = await userApi.signUp(form, signUp);
+    localStorage.setItem("token", response.data.register.token);
+    dispatch({ type: LOGIN, payload: response.data.register });
+    console.log(props);
     props.history.push("/");
   } catch (error) {
+    console.log(error);
     if (error.response) {
       dispatch({ type: ERROR_SIGNUP, payload: error.response.data });
     } else {
@@ -30,7 +33,7 @@ export const login = (form, { props, login }) => async (dispatch) => {
     dispatch({ type: USER_LOADING });
     const response = await userApi.login(form, login);
     localStorage.setItem("token", response.data.login.token);
-    dispatch({ type: LOGIN, payload: response.data });
+    dispatch({ type: LOGIN, payload: response.data.login });
     userApi.requestHeaders();
     props.history.push("/");
   } catch (error) {

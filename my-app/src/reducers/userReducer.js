@@ -22,7 +22,7 @@ const userReducer = (state = INIITAL_STATE, action) => {
       return {
         login: true,
         token: localStorage.token,
-        user: action.payload.login.user,
+        user: action.payload.user,
         loading: false,
         error_login: "",
         error_signup: "",
