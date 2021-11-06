@@ -19,12 +19,16 @@ export const SIGNUP_MUTATION = gql`
   mutation Register(
     $name: String!
     $email: String!
+    $role: Roles!
+    $identification: String!
     $password: String!
     $confirmPassword: String!
   ) {
     register(
       name: $name
       email: $email
+      role: $role
+      identification: $identification
       password: $password
       confirmPassword: $confirmPassword
     ) {

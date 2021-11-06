@@ -1,18 +1,21 @@
-import { Route } from "react-router-dom";
-import "./index.css"
+import { Route, Redirect } from "react-router-dom";
 
-const Authentication = ({ component: Component, ...rest }) => {
+const Authentication = ({ component: Component, loading, login, ...rest }) => {
   return (
     <Route
       {...rest}
       render={(props) => {
-        return (
-          <div className="container">
-            <div className="row">
-              <Component {...props} />
+        if (loading || login || localStorage.token) {
+          return <Redirect to="/" />;
+        } else {
+          return (
+            <div className="container">
+              <div className="row">
+                <Component {...props} />
+              </div>
             </div>
-          </div>
-        );
+          );
+        }
       }}
     />
   );

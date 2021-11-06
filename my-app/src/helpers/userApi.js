@@ -5,6 +5,11 @@ class userApi {
     return myHeaders;
   }
 
+  static signUp(form, signUp) {
+    const data = signUp(form);
+    return data;
+  }
+
   static login(form, login) {
     this.requestHeaders();
     const data = login(form);
