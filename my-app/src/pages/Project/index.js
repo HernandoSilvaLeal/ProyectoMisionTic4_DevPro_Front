@@ -1,10 +1,11 @@
 import { useQuery } from "@apollo/client";
+import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
 import { Card, CardBody, CardHeader, CardText, CardTitle } from "reactstrap";
 
 import { SINGLE_PROJECT_QUERY } from "../../services/GraphQL/queries/projects";
 
-const Project = () => {
+const Project = (props) => {
   const { id } = useParams();
   const { loading, data } = useQuery(SINGLE_PROJECT_QUERY, {
     variables: {
@@ -17,7 +18,6 @@ const Project = () => {
   }
 
   const { project } = data;
-  console.log(project);
 
   return (
     <Card style={{ marginTop: "10px" }}>
@@ -40,4 +40,8 @@ const Project = () => {
   );
 };
 
-export default Project;
+const mapStateToProps = (reducers) => {
+  return reducers.userReducer;
+};
+
+export default connect(mapStateToProps)(Project);
